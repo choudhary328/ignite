@@ -1,0 +1,121 @@
+.scanner-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--gray-600);
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    transition: var(--transition);
+}
+
+.btn-back:hover {
+    color: var(--indigo-600);
+    transform: translateX(-4px);
+}
+
+.scanner-card {
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    padding: 2.5rem;
+}
+
+.scanner-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.scanner-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.scanner-header p {
+    color: var(--gray-500);
+}
+
+.qr-reader-view {
+    border: 2px dashed var(--gray-200);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+/* Customizing html5-qrcode UI */
+#reader__dashboard_section_csr span {
+    display: none;
+}
+
+#reader__status_span {
+    display: none !important;
+}
+
+.scan-result-view {
+    padding: 3rem;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto 1.5rem;
+}
+
+.result-icon.success {
+    background: var(--green-100);
+    color: var(--green-600);
+}
+
+.result-icon.error {
+    background: var(--red-100);
+    color: var(--red-600);
+}
+
+.scan-result-view h2 {
+    margin-bottom: 0.5rem;
+    color: var(--gray-900);
+}
+
+.scan-result-view p {
+    color: var(--gray-600);
+    margin-bottom: 2rem;
+}
+
+.scanner-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--indigo-600);
+    font-weight: 600;
+}

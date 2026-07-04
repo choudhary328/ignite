@@ -1,0 +1,258 @@
+/* --- My Events Page Layout --- */
+.my-events-page {
+  background-color: var(--gray-50);
+  min-height: 100vh;
+}
+
+.my-events-main {
+  max-width: 1466px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-xl);
+}
+
+.my-events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.my-events-header h1 {
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  margin: 0;
+}
+
+.my-events-header span {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.my-events-content-grid {
+  min-height: 200px;
+}
+
+.events-group {
+  margin-bottom: var(--space-2xl);
+}
+
+.events-group.past-events-group {
+  margin-top: var(--space-xl);
+}
+
+.section-title {
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--indigo-100);
+  display: inline-block;
+}
+
+.my-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+/* --- NEW: Empty State (matches screenshot) --- */
+.my-events-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  color: var(--gray-400);
+  margin-bottom: var(--space-lg);
+}
+
+.my-events-empty-state h2 {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.my-events-empty-state p {
+  font-size: var(--fs-base);
+  color: var(--gray-500);
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.empty-state-btn {
+  background: var(--indigo-600);
+  color: var(--white);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.empty-state-btn:hover {
+  background: var(--indigo-700);
+  transform: translateY(-1px);
+}
+
+/* Text for when one list is empty but not the other */
+.list-empty-text {
+  font-size: var(--fs-base);
+  color: var(--gray-500);
+  padding: var(--space-md);
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--gray-200);
+}
+
+
+/* --- My Event Card  --- */
+.my-event-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.my-event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.my-event-content {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.my-event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  margin-bottom: var(--space-md);
+}
+
+.my-event-category {
+  background-color: var(--indigo-50);
+  color: var(--indigo-600);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.my-event-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.my-event-status.upcoming {
+  background-color: var(--green-100);
+  color: var(--green-600);
+}
+
+.my-event-status.past {
+  background-color: var(--gray-100);
+  color: var(--gray-600);
+}
+
+.my-event-title {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.my-event-description {
+  font-size: var(--fs-sm);
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+.my-event-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--gray-700);
+  margin-bottom: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--gray-100);
+}
+
+.my-event-info .info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.my-event-info .info-item svg {
+  color: var(--indigo-600);
+  font-size: var(--fs-lg);
+}
+
+.my-event-leave-btn {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: none;
+  background-color: var(--red-600);
+  color: var(--white);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  transition: var(--transition);
+}
+
+.my-event-leave-btn:hover {
+  background-color: #b91c1c;
+  /* Darker red */
+}
+
+.my-event-leave-btn:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
+}
+
+/* From EventCard.css, for errors */
+.event-card-error {
+  font-size: var(--fs-sm);
+  color: var(--red-600);
+  background: var(--red-100);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}

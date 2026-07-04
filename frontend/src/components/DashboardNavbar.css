@@ -1,0 +1,450 @@
+/* Dashboard Navbar CSS */
+
+.navbar-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar-container {
+    max-width: 1466px;
+    margin: 0 auto;
+}
+
+/* --- Top Section --- */
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4.5rem;
+    padding: 0 1.5rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.brand-logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.75rem;
+    color: #4f46e5;
+    margin: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.brand-logo:hover {
+    opacity: 0.8;
+}
+
+.brand-info h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0;
+    color: #111827;
+}
+
+.brand-info p {
+    font-size: 0.8125rem;
+    margin: 0;
+    color: #6b7280;
+}
+
+/* --- User profile wrapper (Profile + Dropdown) --- */
+.user-profile-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+/* Profile Trigger */
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+    gap: 0.75rem;
+    transition: all 0.2s;
+}
+
+.profile-trigger:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.profile-trigger.active {
+    background: #f3f4f6;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.profile-img-container {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: #f0f2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 1px #e5e7eb;
+}
+
+.nav-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-img-container svg {
+    color: #4f46e5;
+    font-size: 1.25rem;
+}
+
+.profile-text-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.user-displayName {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111827;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-displayRole {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-transform: capitalize;
+}
+
+/* --- Dropdown Menu --- */
+.navbar-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 240px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 0;
+    z-index: 1001;
+    animation: dropdownSlideIn 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes dropdownSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-user-header {
+    padding: 0.75rem 1rem;
+}
+
+.user-name-bold {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.user-email-small {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 2px 0 0 0;
+    word-break: break-all;
+}
+
+.dropdown-sep {
+    height: 1px;
+    background: #f3f4f6;
+    margin: 0.5rem 0;
+}
+
+.dropdown-nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 1rem;
+    border: none;
+    background: transparent;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.dropdown-nav-item:hover {
+    background: #f9fafb;
+    color: #4f46e5;
+}
+
+.dropdown-nav-item svg {
+    font-size: 1.125rem;
+    color: #9ca3af;
+}
+
+.dropdown-nav-item:hover svg {
+    color: #4f46e5;
+}
+
+.dropdown-nav-item.item-logout {
+    color: #dc2626;
+}
+
+.dropdown-nav-item.item-logout:hover {
+    background: #fef2f2;
+}
+
+.dropdown-nav-item.item-logout svg {
+    color: #f87171;
+}
+
+/* --- Navigation Tabs --- */
+.navbar-navigation {
+    display: flex;
+    padding: 0 1.5rem;
+    border-top: 1px solid #f3f4f6;
+    gap: 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.navbar-navigation::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-tab-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 0.5rem;
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.nav-tab-link svg {
+    font-size: 1.25rem;
+    color: #9ca3af;
+}
+
+.nav-tab-link:hover {
+    color: #111827;
+}
+
+.nav-tab-link.active {
+    color: #4f46e5;
+    border-bottom-color: #4f46e5;
+    font-weight: 600;
+}
+
+.nav-tab-link.active svg {
+    color: #4f46e5;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+
+    .brand-info,
+    .profile-text-info {
+        display: none;
+    }
+
+    .navbar-top {
+        height: 4rem;
+    }
+}
+
+/* Notification Badge */
+.nav-icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.notif-dot {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ef4444;
+    box-shadow: 0 0 0 2px white;
+    animation: notifPulse 2s ease-in-out infinite;
+}
+
+@keyframes notifPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ===============================================
+   DARK MODE — Navbar
+   =============================================== */
+.dark-theme .navbar-header {
+    background: #1e293b;
+    border-bottom-color: #334155;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .brand-logo {
+    color: #818cf8;
+}
+
+.dark-theme .brand-info h2 {
+    color: #f1f5f9;
+}
+
+.dark-theme .brand-info p {
+    color: #94a3b8;
+}
+
+.dark-theme .profile-trigger {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+.dark-theme .profile-trigger:hover {
+    background: #334155;
+    border-color: #475569;
+}
+
+.dark-theme .profile-trigger.active {
+    background: #334155;
+    border-color: #818cf8;
+    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+}
+
+.dark-theme .profile-img-container {
+    background: #312e81;
+    border-color: #1e293b;
+    box-shadow: 0 0 0 1px #334155;
+}
+
+.dark-theme .profile-img-container svg {
+    color: #a5b4fc;
+}
+
+.dark-theme .user-displayName {
+    color: #f1f5f9;
+}
+
+.dark-theme .user-displayRole {
+    color: #94a3b8;
+}
+
+.dark-theme .navbar-dropdown {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .user-name-bold {
+    color: #f1f5f9;
+}
+
+.dark-theme .user-email-small {
+    color: #94a3b8;
+}
+
+.dark-theme .dropdown-sep {
+    background: #334155;
+}
+
+.dark-theme .dropdown-nav-item {
+    color: #cbd5e1;
+}
+
+.dark-theme .dropdown-nav-item:hover {
+    background: #334155;
+    color: #a5b4fc;
+}
+
+.dark-theme .dropdown-nav-item svg {
+    color: #64748b;
+}
+
+.dark-theme .dropdown-nav-item:hover svg {
+    color: #a5b4fc;
+}
+
+.dark-theme .dropdown-nav-item.item-logout {
+    color: #f87171;
+}
+
+.dark-theme .dropdown-nav-item.item-logout:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.dark-theme .dropdown-nav-item.item-logout svg {
+    color: #f87171;
+}
+
+.dark-theme .navbar-navigation {
+    border-top-color: #334155;
+}
+
+.dark-theme .nav-tab-link {
+    color: #94a3b8;
+}
+
+.dark-theme .nav-tab-link svg {
+    color: #64748b;
+}
+
+.dark-theme .nav-tab-link:hover {
+    color: #e2e8f0;
+}
+
+.dark-theme .nav-tab-link.active {
+    color: #818cf8;
+    border-bottom-color: #818cf8;
+}
+
+.dark-theme .nav-tab-link.active svg {
+    color: #818cf8;
+}
+
+.dark-theme .notif-dot {
+    box-shadow: 0 0 0 2px #1e293b;
+}

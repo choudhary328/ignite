@@ -1,0 +1,359 @@
+/* Reuse variables and base styles from Dashboard.css */
+@import "../pages/Dashboard.css";
+
+.admin-events-page {
+    background-color: var(--gray-50);
+    min-height: 100vh;
+}
+
+.events-main-content {
+    max-width: 1466px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: var(--shadow-sm);
+}
+
+.events-title {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.create-btn {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-xl);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+}
+
+.create-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.4);
+}
+
+/* Filter Box */
+.filter-box {
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-xl);
+    border: 1px solid var(--gray-100);
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .filter-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.filter-label {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: var(--gray-400);
+    font-size: 1.25rem;
+    pointer-events: none;
+}
+
+.filter-input,
+.filter-select {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-lg);
+    font-size: var(--fs-md);
+    transition: var(--transition);
+    background-color: var(--white);
+}
+
+.filter-select {
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+    outline: none;
+    border-color: var(--indigo-500);
+    box-shadow: 0 0 0 3px var(--indigo-100);
+}
+
+/* Events List */
+.events-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* Reuse layout similar to OrgDashboard but adapted for Admin actions */
+.event-list-item {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-2xl);
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.event-list-item:hover {
+    transform: scale(1.01);
+    background: white;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--indigo-200);
+}
+
+.event-list-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    flex: 1;
+}
+
+.event-list-image-wrapper {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.event-list-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-status-overlay {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+}
+
+.event-list-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.event-list-title {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0;
+}
+
+.event-list-subtitle {
+    font-size: var(--fs-sm);
+    color: var(--indigo-600);
+    font-weight: 500;
+    margin: 0;
+}
+
+.event-list-meta {
+    display: flex;
+    gap: var(--space-lg);
+    margin-top: 0.5rem;
+    color: var(--gray-500);
+    font-size: var(--fs-sm);
+}
+
+.event-list-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.event-list-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.approval-actions {
+    display: flex;
+    gap: var(--space-xs);
+    margin-right: var(--space-sm);
+    padding-right: var(--space-sm);
+    border-right: 1px solid var(--gray-200);
+}
+
+.action-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    padding: 0.5rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: var(--gray-50);
+    border-color: var(--gray-200);
+    color: var(--gray-900);
+}
+
+.btn-edit:hover {
+    color: var(--indigo-600);
+    background: var(--indigo-50);
+    border-color: var(--indigo-100);
+}
+
+.btn-delete:hover {
+    color: var(--red-600);
+    background: var(--red-50);
+    border-color: var(--red-100);
+}
+
+.btn-approve:hover {
+    color: var(--green-600);
+    background: var(--green-50);
+    border-color: var(--green-100);
+}
+
+.btn-reject:hover {
+    color: var(--red-500);
+    background: var(--red-50);
+    border-color: var(--red-100);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    box-shadow: var(--shadow-sm);
+}
+
+.status-badge.pending {
+    background: var(--amber-500);
+    color: var(--white);
+}
+
+.status-badge.approved {
+    background: var(--green-500);
+    color: var(--white);
+}
+
+.status-badge.rejected {
+    background: var(--red-500);
+    color: var(--white);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px dashed var(--gray-300);
+}
+
+.empty-icon {
+    font-size: 3rem;
+    color: var(--gray-300);
+    margin-bottom: 1rem;
+}
+
+.empty-title {
+    font-size: var(--fs-xl);
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.empty-text {
+    color: var(--gray-500);
+}
+
+/* ===============================================
+   DARK MODE — Admin Events
+   =============================================== */
+.dark-theme .events-header {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: #334155;
+}
+
+.dark-theme .event-list-item {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: #334155;
+}
+
+.dark-theme .event-list-item:hover {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: var(--indigo-200);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .filter-input,
+.dark-theme .filter-select {
+    background-color: #0f172a;
+    border-color: #334155;
+    color: #f1f5f9;
+}
+
+.dark-theme .filter-input::placeholder {
+    color: #64748b;
+}
+
+.dark-theme .filter-input:focus,
+.dark-theme .filter-select:focus {
+    border-color: var(--indigo-500);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+}

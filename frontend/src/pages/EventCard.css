@@ -1,0 +1,455 @@
+/* This file uses the CSS variables (e.g., var(--white))
+  defined in your main CSS file (like App.css or Dashboard.css)
+*/
+
+/* --- Base Event Card --- */
+.event-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  /* 12px */
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  /* Makes cards in a grid have equal height */
+  width: 100%;
+  /* Card should be flexible, let the grid control its size */
+  transition: var(--transition);
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.event-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.event-card-content {
+  padding: var(--space-xl);
+  /* 1.5rem */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* This makes the button stick to the bottom */
+}
+
+.event-card-category {
+  display: inline-block;
+  background-color: var(--indigo-50);
+  color: var(--indigo-600);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  /* 0.875rem */
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  /* 0.75rem */
+  align-self: flex-start;
+}
+
+.event-card-title {
+  font-size: var(--fs-xl);
+  /* 1.25rem */
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 var(--space-sm) 0;
+  /* 0.5rem */
+  line-height: 1.4;
+}
+
+.event-card-description {
+  font-size: var(--fs-sm);
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+  /* 1rem */
+  /* Limit to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  /* Pushes info/button down */
+}
+
+.event-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  /* 0.5rem */
+  font-size: var(--fs-sm);
+  color: var(--gray-700);
+  margin-bottom: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--gray-100);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  /* 0.75rem */
+}
+
+.info-item svg {
+  color: var(--indigo-600);
+  font-size: var(--fs-lg);
+  /* 1.125rem */
+  flex-shrink: 0;
+}
+
+/* --- Participant Bar --- */
+.event-card-participants {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-sm);
+  color: var(--gray-500);
+  margin-top: -0.5rem;
+  margin-bottom: var(--space-lg);
+}
+
+.event-card-participants-count {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.event-card-participants-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+}
+
+.event-card-participants-progress {
+  height: 100%;
+  background-color: var(--indigo-600);
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+/* --- Action Button --- */
+.event-card-join-btn {
+  width: 100%;
+  display: flex;
+  /* Updated for icon support */
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  text-align: center;
+  background: var(--indigo-600);
+  color: var(--white);
+  font-size: var(--fs-base);
+  /* 1rem */
+  font-weight: 500;
+  padding: var(--space-md);
+  /* 0.75rem */
+  border: none;
+  border-radius: var(--radius-lg);
+  /* 8px */
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: auto;
+  /* Stick to bottom */
+}
+
+.event-card-join-btn:hover {
+  background: var(--indigo-700);
+}
+
+/* --- NEW: Button States --- */
+
+/* Red "Leave" state */
+.event-card-join-btn.btn-danger {
+  background-color: var(--red-600);
+}
+
+.event-card-join-btn.btn-danger:hover {
+  background-color: #b91c1c;
+  /* Darker red */
+}
+
+/* Green "Joined" state */
+.event-card-join-btn.btn-joined {
+  background-color: var(--green-600);
+  cursor: not-allowed;
+}
+
+/* Disabled "Full" state */
+.event-card-join-btn:disabled,
+.event-card-join-btn.btn-disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+}
+
+/* Accessibility */
+.event-card-join-btn:focus-visible {
+  outline: 2px solid var(--indigo-600);
+  outline-offset: 2px;
+}
+
+.event-card-join-btn.btn-danger:focus-visible {
+  outline-color: var(--red-600);
+}
+
+
+/* --- Error Message --- */
+.event-card-error {
+  font-size: var(--fs-sm);
+  color: var(--red-600);
+  background: var(--red-100);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+/* --- Image Container & Category Badge --- */
+.event-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-category-badge {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  color: var(--indigo-600);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: capitalize;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-status-badge {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: capitalize;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-status-badge.past {
+  background-color: var(--gray-100);
+  color: var(--gray-600);
+}
+
+
+/* --- Card Meta Rows --- */
+.event-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--gray-600);
+}
+
+.meta-icon {
+  color: var(--indigo-500);
+  font-size: var(--fs-lg);
+  flex-shrink: 0;
+}
+
+/* --- Progress Bar --- */
+.event-progress-container {
+  margin-bottom: var(--space-lg);
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-xs);
+  color: var(--gray-500);
+  margin-bottom: 0.35rem;
+}
+
+.progress-label span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: var(--gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--indigo-600), var(--indigo-500));
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+/* --- Card Actions Row --- */
+.event-card-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.btn-outline-primary {
+  flex: 1;
+  background: var(--white);
+  color: var(--indigo-600);
+  border: 1px solid var(--indigo-100);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-outline-primary:hover {
+  background: var(--indigo-50);
+  border-color: var(--indigo-600);
+}
+
+.btn-primary {
+  flex: 1;
+  background: linear-gradient(135deg, var(--indigo-600), var(--indigo-500));
+  color: var(--white);
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--indigo-700), var(--indigo-600));
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary.btn-success {
+  background: linear-gradient(135deg, var(--green-600), var(--green-500));
+}
+
+/* --- Event Details Modal --- */
+.event-details-modal {
+  max-width: 640px;
+}
+
+.event-details-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.event-details-content {
+  padding: 0;
+}
+
+.event-description {
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+  white-space: pre-line;
+}
+
+.event-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 480px) {
+  .event-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--gray-600);
+  padding: var(--space-sm) 0;
+}
+
+.meta-item svg {
+  color: var(--indigo-500);
+  font-size: var(--fs-lg);
+  flex-shrink: 0;
+}
+
+/* --- Past Event State --- */
+.past-event-card {
+  filter: grayscale(0.5);
+  opacity: 0.85;
+}
+
+.past-event-card:hover {
+  filter: grayscale(0.2);
+  opacity: 1;
+}
+
+/* ===============================================
+   DARK MODE — Event Cards
+   =============================================== */
+.dark-theme .event-category-badge {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+.dark-theme .event-status-badge {
+  background: rgba(30, 41, 59, 0.9);
+  color: #cbd5e1;
+}
+
+.dark-theme .btn-outline-primary {
+  background: transparent;
+  color: #a5b4fc;
+  border-color: #334155;
+}
+
+.dark-theme .btn-outline-primary:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: #818cf8;
+}

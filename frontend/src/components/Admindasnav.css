@@ -1,0 +1,10 @@
+/* Admin Dashboard Navbar CSS - Reusing base navbar styles */
+@import "./DashboardNavbar.css";
+
+.brand-info h2 {
+    color: #1f2937;
+}
+
+.dark-theme .brand-info h2 {
+    color: #f1f5f9;
+}
